@@ -1,0 +1,30 @@
+server:
+   port: ${PORT:8080}
+
+spring:
+   application:
+      name: authproxyTest
+   datasource:
+      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/job_db}
+      username: ${DB_USER:postgres}
+      password: ${DB_PASSWORD:password}
+      driver-class-name: org.postgresql.Driver
+      hikari:
+         initialization-fail-timeout: -1  # 重要：避免啟動時立即失敗
+         connection-timeout: 30000
+         maximum-pool-size: 5
+         minimum-idle: 0  # 重要：啟動時不立即建立連線
+   jpa:
+      hibernate:
+         ddl-auto: ${DDL_AUTO:update}
+      show-sql: ${SHOW_SQL:true}
+      defer-datasource-initialization: true  # 延遲初始化
+   sql:
+      init:
+         mode: never
+
+# 健康檢查不包含資料庫
+management:
+   health:
+      db:
+         enabled: false
