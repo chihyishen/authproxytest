@@ -19,7 +19,7 @@
 ## 🐳 Docker 關鍵配置
 
 ### Dockerfile 要點
-- 安裝 `cloud_sql_proxy` 二進位檔
+- 安裝 `cloud_sql_proxy`
 - 複製 `start.sh` 啟動腳本
 - 使用 `start.sh` 作為容器入口點
 
