@@ -5,7 +5,7 @@ spring:
    application:
       name: authproxyTest
    datasource:
-      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/job_db}
+      url: "${DATASOURCE_URL}${DB_NAME}"
       username: ${DB_USER:postgres}
       password: ${DB_PASSWORD:password}
       driver-class-name: org.postgresql.Driver
